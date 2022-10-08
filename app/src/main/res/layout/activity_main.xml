@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select date range from the below selectors:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textViewStartDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Start Date"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEndDate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructionText" />
+
+    <TextView
+        android:id="@+id/textViewEndDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="End Date"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/instructionText" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStartDate" />
+
+    <TextView
+        android:id="@+id/fastestAsteroidTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fastest Asteroid"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitBtn"
+        android:textAlignment="center"
+        android:background="@color/purple_700"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/fastestAsteroidData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        tools:text="Id: 2465633 \nSpeed: 65260.6371983344 km/hr"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fastestAsteroidTitle"
+        android:padding="4dp"
+        android:text="No Data Available Yet"/>
+
+    <TextView
+        android:id="@+id/closestAsteroidTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Closest Asteroid"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fastestAsteroidData"
+        android:textAlignment="center"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/closestAsteroidData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Id: 2465633 \nDistance: 65260.6371983344 km"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closestAsteroidTitle"
+        android:padding="4dp"
+        android:background="@color/purple_200"
+        android:textColor="@color/white"
+        android:text="No Data Available Yet"/>
+
+    <TextView
+        android:id="@+id/averageAsteroidSizeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Average Size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closestAsteroidData"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/averageSizedAsteroidData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/averageAsteroidSizeTitle"
+        android:textSize="20sp"
+        tools:text="Diameter: 65260.6371983344 km"
+        android:background="@color/purple_200"
+        android:textColor="@color/white"
+        android:padding="4dp"
+        android:text="No Data Available Yet"/>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/idBarChart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/averageSizedAsteroidData" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
